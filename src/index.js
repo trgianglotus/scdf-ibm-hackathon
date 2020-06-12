@@ -7,18 +7,18 @@ import models from "@cloud-annotations/models";
 import styles from "./App.module.css";
 import "./styles.css";
 
-const getRetinaContext = canvas => {
+const getRetinaContext = (canvas) => {
   const ctx = canvas.getContext("2d");
   const scale = window.devicePixelRatio;
   let width = canvas.width / scale;
   let height = canvas.height / scale;
   return {
-    setWidth: w => {
+    setWidth: (w) => {
       width = w;
       canvas.style.width = w + "px";
       canvas.width = w * scale;
     },
-    setHeight: h => {
+    setHeight: (h) => {
       height = h;
       canvas.style.height = h + "px";
       canvas.height = h * scale;
@@ -31,18 +31,18 @@ const getRetinaContext = canvas => {
     clearRect: (x, y, width, height) => {
       return ctx.clearRect(x * scale, y * scale, width * scale, height * scale);
     },
-    setFont: font => {
+    setFont: (font) => {
       const size = parseInt(font, 10) * scale;
       const retinaFont = font.replace(/^\d+px/, size + "px");
       ctx.font = retinaFont;
     },
-    setTextBaseLine: textBaseline => {
+    setTextBaseLine: (textBaseline) => {
       ctx.textBaseline = textBaseline;
     },
-    setStrokeStyle: strokeStyle => {
+    setStrokeStyle: (strokeStyle) => {
       ctx.strokeStyle = strokeStyle;
     },
-    setLineWidth: lineWidth => {
+    setLineWidth: (lineWidth) => {
       ctx.lineWidth = lineWidth * scale;
     },
     strokeRect: (x, y, width, height) => {
@@ -53,17 +53,17 @@ const getRetinaContext = canvas => {
         height * scale
       );
     },
-    setFillStyle: fillStyle => {
+    setFillStyle: (fillStyle) => {
       ctx.fillStyle = fillStyle;
     },
-    measureText: text => {
+    measureText: (text) => {
       const metrics = ctx.measureText(text);
       return {
         width: metrics.width / scale,
         actualBoundingBoxLeft: metrics.actualBoundingBoxLeft / scale,
         actualBoundingBoxRight: metrics.actualBoundingBoxRight / scale,
         actualBoundingBoxAscent: metrics.actualBoundingBoxAscent / scale,
-        actualBoundingBoxDescent: metrics.actualBoundingBoxDescent / scale
+        actualBoundingBoxDescent: metrics.actualBoundingBoxDescent / scale,
       };
     },
     fillRect: (x, y, width, height) => {
@@ -71,7 +71,7 @@ const getRetinaContext = canvas => {
     },
     fillText: (text, x, y) => {
       return ctx.fillText(text, x * scale, y * scale);
-    }
+    },
   };
 };
 
@@ -87,7 +87,7 @@ const renderObjectDetection = (ctx, predictions) => {
   const offset = 2;
   const textHeight = parseInt(font, 10); // base 10
 
-  predictions.forEach(prediction => {
+  predictions.forEach((prediction) => {
     const x = prediction.bbox[0];
     const y = prediction.bbox[1];
     const width = prediction.bbox[2];
@@ -113,7 +113,7 @@ const renderObjectDetection = (ctx, predictions) => {
     );
   });
 
-  predictions.forEach(prediction => {
+  predictions.forEach((prediction) => {
     const x = prediction.bbox[0];
     const y = prediction.bbox[1];
     // Draw the text last to ensure it's on top.
@@ -138,7 +138,7 @@ const renderClassification = (ctx, predictions) => {
   ctx.setTextBaseLine("top");
 
   predictions
-    .filter(prediction => prediction.score > 0.5)
+    .filter((prediction) => prediction.score > 0.5)
     .forEach((prediction, i) => {
       const label = `${prediction.label} ${(prediction.score * 100).toFixed(
         1
@@ -170,7 +170,7 @@ const App = () => {
   const [resultsCanvas, setResultsCanvas] = useState(undefined);
 
   useEffect(() => {
-    models.load("/model_web").then(async model => {
+    models.load("/model_web").then(async (model) => {
       // warm up the model
       const image = new ImageData(1, 1);
       if (model.type === "detection") {
@@ -197,7 +197,7 @@ const App = () => {
   }, []);
 
   const onImageChange = useCallback(
-    async e => {
+    async (e) => {
       const imgWidth = e.target.clientWidth;
       const imgHeight = e.target.clientHeight;
 
@@ -218,6 +218,7 @@ const App = () => {
 
   return (
     <div className={styles.wrapper}>
+      Lmao
       <MagicDropzone
         className={styles.dropzone}
         accept="image/jpeg, image/png, .jpg, .jpeg, .png"
