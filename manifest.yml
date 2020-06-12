@@ -1,0 +1,3 @@
+applications:
+  - name: app-name
+    memory: 512M
