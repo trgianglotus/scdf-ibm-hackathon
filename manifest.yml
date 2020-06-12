@@ -1,3 +1,3 @@
 applications:
-  - name: app-name
+  - name: react-app
     memory: 512M
