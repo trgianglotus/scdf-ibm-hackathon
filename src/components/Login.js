@@ -14,6 +14,7 @@ export default class extends React.Component {
     redirect: null,
     loginErrMsg: "",
   };
+
   onLogin = async () => {
     const res = await loginUser(this.state.username, this.state.password);
     console.log(res);
