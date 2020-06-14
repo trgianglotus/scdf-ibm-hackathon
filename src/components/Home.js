@@ -42,7 +42,11 @@ const Home = (props) => (
                 data-wow-duration="1.1s"
                 data-wow-delay=".2s"
               >
-                <img src="img/ilstrator/phone.png" alt="" />
+                <img
+                  src="img/ilstrator/phone.png"
+                  alt=""
+                  style={{ marginBottom: "25em" }}
+                />
               </div>
             </div>
           </div>
@@ -135,7 +139,7 @@ const Home = (props) => (
               data-wow-duration=".8s"
               data-wow-delay=".5s"
             >
-              <img src="img/ilstrator_img/mobile_screen.png" alt="" />
+              <img src="img/ilstrator/phone.png" alt="" />
             </div>
           </div>
         </div>
