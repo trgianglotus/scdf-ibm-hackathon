@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 const App = () => {
+  const user = false;
   return (
     <BrowserRouter>
       <Header />

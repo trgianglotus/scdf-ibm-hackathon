@@ -2,12 +2,14 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { InputBox } from "./subcomponents/InputBox";
-
+import { registerUser } from "../api/userApi";
 class Register extends React.Component {
   state = {
     email: "",
     username: "",
     password: "",
+    phone: "",
+    address: "",
     emailErrMsg: "",
     usernameErrMsg: "",
     usernameLenErrMsg: "",
@@ -24,11 +26,14 @@ class Register extends React.Component {
   };
 
   onRegister = async () => {
-    // this.props.registerUser(
-    //   this.state.email,
-    //   this.state.username,
-    //   this.state.password
-    // );
+    console.log("hi");
+    const res = await registerUser(
+      this.state.phone,
+      this.state.username,
+      this.state.password,
+      this.state.address
+    );
+    console.log(res);
   };
 
   handleEmail = (e) => {
@@ -86,6 +91,13 @@ class Register extends React.Component {
       });
     }
   };
+  handlePhone = (e) => {
+    this.setState({ phone: e.target.value });
+  };
+
+  handleAddress = (e) => {
+    this.setState({ address: e.target.value });
+  };
 
   handlePassword = (e) => {
     let password = e.target.value;
@@ -120,11 +132,8 @@ class Register extends React.Component {
                 label="Phone"
                 placeholder="+65 9389 8429"
                 icon="phone"
-                value={this.state.email}
-                inputHandler={this.handleEmail}
-                reqPF={this.state.emailReqPF}
-                validity={this.state.validEmail}
-                dangerTexts={[this.state.emailAlrExist, this.state.emailErrMsg]}
+                value={this.state.phone}
+                inputHandler={this.handlePhone}
               ></InputBox>
 
               <InputBox
@@ -159,27 +168,12 @@ class Register extends React.Component {
                 placeholder="Blk 123 Bishan St 12 #12-345"
                 type=""
                 icon="home"
-                value=""
-                inputHandler={this.handlePassword}
-                reqPF={this.state.pwdReqPF}
-                validity={this.state.validPwd}
-                dangerTexts={[this.state.pwdLenErrMsg]}
+                value={this.state.address}
+                inputHandler={this.handleAddress}
               ></InputBox>
 
-              {/* id="regBtn" */}
               <div className="mtb30">
-                {/* <div>{this.props.users.regErrMsg}</div> */}
-                <button
-                  onClick={this.onRegister}
-                  // disabled={
-                  //   !(
-                  //     this.state.validEmail &&
-                  //     this.state.validPwd &&
-                  //     this.state.validUsername
-                  //   )
-                  // }
-                  className="button is-primary"
-                >
+                <button onClick={this.onRegister} className="button is-primary">
                   Register
                 </button>
               </div>

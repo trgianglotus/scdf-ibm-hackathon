@@ -21,6 +21,9 @@
   --cw10: 1200px;
 }
 
+body {
+  min-height: 850px;
+}
 .center {
   display: flex;
   flex-direction: column;

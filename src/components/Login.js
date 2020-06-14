@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 // import { logInUser } from "../constants/actionCreators";
 import { InputBox } from "./subcomponents/InputBox";
-// import { login } from "../api";
+import { loginUser } from "../api/userApi";
 
 export default class extends React.Component {
   state = {
@@ -15,7 +15,8 @@ export default class extends React.Component {
     loginErrMsg: "",
   };
   onLogin = async () => {
-    // this.props.logInUser(this.state.username, this.state.password);
+    const res = await loginUser(this.state.username, this.state.password);
+    console.log(res);
   };
 
   handleUsername = (e) => {
