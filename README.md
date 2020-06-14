@@ -1,24 +1,24 @@
-# Classification React App
+# SCDF x IBM Lifesavers’ Innovation Challenge: Call for Code 2020:
 
-You can find an in depth walkthrough for training a TensorFlow.js model [here](https://github.com/cloud-annotations/training/).
+# Who are we 
+Team AAJPG We are a group of 5 multidisciplinary undergraduate students who came together to code for good. With personal experience driving our motivation, we aim to improve and provide solutions that make caring for our elderly much simpler.
 
-## Setup
-`git clone` the repo and `cd` into it by running the following command:
+# Problem
+The elderly are often overlooked in our society. Amongst the many home hazards, falling and burns from fires are the leading factors that trigger emergency services. (more)  
 
-```bash
-git clone https://github.com/cloud-annotations/classification-react.git
-cd classification-react
-```
+# Video Pitch insert video  
 
-### `npm install`
+# Architecture of Solution 
+insert diagrams
 
-> **Note: You’ll need to have Node 8.10.0 or later on your local development machine.** You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to easily switch Node versions between different projects.
+# Detailed Description
 
-## Add TensorFlow.js Model to the App
-Copy the `model_web` directory generated from the classification walkthrough and paste it into the `public` folder of this repo.
+# Usage (Getting Started)
 
-## Run the App
-### `npm start`
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+# Tech Stack 
+### IBM CloudantDB
+### IBM Node Red 
+### IBM IoT Platform 
+### Twillio
+### React
+### Node.js
